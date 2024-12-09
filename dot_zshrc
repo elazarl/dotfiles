@@ -1,0 +1,11 @@
+
+autoload -U compinit
+compinit
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh)"
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+eval "$(sheldon source)"
+export EDITOR=nvim
+export PATH=$PATH:~/.local/bin
