@@ -9,3 +9,15 @@ eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 eval "$(sheldon source)"
 export EDITOR=nvim
+
+update_theme() {
+if termbg|rg -q Dark
+  then
+    export BAT_THEME='gruvbox-dark'
+    export FZF_DEFAULT_OPTS='--color=dark'
+  else
+    export BAT_THEME='gruvbox-light'
+    export FZF_DEFAULT_OPTS='--color=light'
+fi
+}
+precmd() { update_theme }
