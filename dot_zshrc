@@ -1,8 +1,13 @@
 export PATH=~/.local/bin:$PATH
+export ZSH=~/.zsh
+export ZSH_CACHE_DIR
+export ZSH_CACHE_DIR="$ZSH/cache"
 
 autoload -U compinit
 compinit
 . "$HOME/.atuin/bin/env"
+
+source <(kubectl completion zsh)
 
 eval "$(atuin init zsh)"
 eval "$(starship init zsh)"

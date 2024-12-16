@@ -27,7 +27,13 @@ github = "zsh-users/zsh-completions"
 
 [plugins.oh-my-zsh]
 github = "ohmyzsh/ohmyzsh"
-use = ["lib/git.zsh", "plugins/git/*.zsh", "plugins/urltools/*.zsh"]
+use = [
+  "ohmyzsh/oh-my-zsh.sh",
+  "lib/git.zsh",
+  "plugins/git/*.zsh",
+  "plugins/kubectl/*.zsh",
+  "plugins/urltools/*.zsh",
+]
 
 [plugins.vi-mode]
 github = "jeffreytse/zsh-vi-mode"
