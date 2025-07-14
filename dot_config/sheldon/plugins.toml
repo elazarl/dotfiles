@@ -24,6 +24,8 @@ github = "zsh-users/zsh-autosuggestions"
 github = "zsh-users/zsh-syntax-highlighting"
 [plugins.comp]
 github = "zsh-users/zsh-completions"
+[plugins.autocomp]
+github = "marlonrichert/zsh-autocomplete"
 
 [plugins.oh-my-zsh]
 github = "ohmyzsh/ohmyzsh"

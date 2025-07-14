@@ -1,0 +1,25 @@
+#!/bin/bash -xv
+
+if [ ! -f ~/.cargo/env ]; then
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+fi
+source ~/.cargo/env
+if ! command -v cargo-binstall; then
+  curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash
+fi
+cargo binstall -y ripgrep skim starship zoxide atuin bat choose lsd eza broot \
+  fd-find sheldon bob-nvim bottom procs \
+  macchina fselect sd jless qsv xcp xh tokei miniserve dysk bandwhich git-delta
+cargo install dua-cli --no-default-features --features tui-crossplatform # for some reason dua-cli won't install cleanly with binstall
+
+broot --print-shell-function zsh > ~/.config/br.zsh
+broot --set-install-state installed
+yes no|bob use stable
+
+if [ ! -d ~/.config/nvim ]; then
+  rm -rf ~/.local/share/nvim ~/.local/state/nvim ~/.cache/nvim
+  git clone --depth 1 https://github.com/AstroNvim/template ~/.config/nvim
+  rm -rf ~/.config/nvim/.git
+  ln -sf ~/.config/nvim-user/community.lua ~/.config/nvim/lua/community.lua
+fi
+

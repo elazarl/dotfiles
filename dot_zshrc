@@ -1,13 +1,11 @@
-export PATH=~/.local/bin:$PATH
-export ZSH=~/.zsh
-export ZSH_CACHE_DIR
-export ZSH_CACHE_DIR="$ZSH/cache"
+export PATH=$HOME/.local/share/bob/nvim-bin:~/.local/bin:$PATH
 
 autoload -U compinit
 compinit
-. "$HOME/.atuin/bin/env"
 
-source <(kubectl completion zsh)
+if command -v kubectl >/dev/null 2>&1; then
+  source <(kubectl completion zsh)
+fi
 
 eval "$(atuin init zsh)"
 eval "$(starship init zsh)"
@@ -15,14 +13,4 @@ eval "$(zoxide init zsh)"
 eval "$(sheldon source)"
 export EDITOR=nvim
 
-update_theme() {
-if termbg|rg -q Dark
-  then
-    export BAT_THEME='gruvbox-dark'
-    export FZF_DEFAULT_OPTS='--color=dark'
-  else
-    export BAT_THEME='gruvbox-light'
-    export FZF_DEFAULT_OPTS='--color=light'
-fi
-}
-precmd() { update_theme }
+source ~/.config/br.zsh
