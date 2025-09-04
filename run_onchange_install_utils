@@ -10,7 +10,6 @@ fi
 cargo binstall -y ripgrep skim starship zoxide atuin bat choose lsd eza broot \
   fd-find sheldon bob-nvim bottom procs \
   macchina fselect sd jless qsv xcp xh tokei miniserve dysk bandwhich git-delta
-cargo install dua-cli --no-default-features --features tui-crossplatform # for some reason dua-cli won't install cleanly with binstall
 
 broot --print-shell-function zsh > ~/.config/br.zsh
 broot --set-install-state installed
