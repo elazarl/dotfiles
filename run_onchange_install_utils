@@ -13,7 +13,7 @@ cargo binstall -y ripgrep skim starship zoxide atuin bat choose lsd eza broot \
 
 broot --print-shell-function zsh > ~/.config/br.zsh
 broot --set-install-state installed
-yes no|bob use stable
+yes no|head -1|bob use stable
 
 if [ ! -d ~/.config/nvim ]; then
   rm -rf ~/.local/share/nvim ~/.local/state/nvim ~/.cache/nvim
