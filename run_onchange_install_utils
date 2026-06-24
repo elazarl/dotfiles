@@ -11,7 +11,8 @@ cargo binstall -y ripgrep skim starship zoxide atuin bat choose lsd eza \
   fd-find sheldon bob-nvim bottom procs \
   fselect sd jless qsv xcp xh tokei miniserve dysk bandwhich git-delta
 
-yes no|head -1|bob use stable
+# bob skips its "add to $PATH?" prompt when nvim-bin is already in PATH (dot_zshrc sets it for real shells)
+PATH="$HOME/.local/share/bob/nvim-bin:$PATH" bob use stable
 
 if [ ! -d ~/.config/nvim ]; then
   rm -rf ~/.local/share/nvim ~/.local/state/nvim ~/.cache/nvim

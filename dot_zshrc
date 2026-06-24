@@ -12,5 +12,3 @@ eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 eval "$(sheldon source)"
 export EDITOR=nvim
-
-source ~/.config/br.zsh
