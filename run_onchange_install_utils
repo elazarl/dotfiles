@@ -7,12 +7,10 @@ source ~/.cargo/env
 if ! command -v cargo-binstall; then
   curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash
 fi
-cargo binstall -y ripgrep skim starship zoxide atuin bat choose lsd eza broot \
+cargo binstall -y ripgrep skim starship zoxide atuin bat choose lsd eza \
   fd-find sheldon bob-nvim bottom procs \
-  macchina fselect sd jless qsv xcp xh tokei miniserve dysk bandwhich git-delta
+  fselect sd jless qsv xcp xh tokei miniserve dysk bandwhich git-delta
 
-broot --print-shell-function zsh > ~/.config/br.zsh
-broot --set-install-state installed
 yes no|head -1|bob use stable
 
 if [ ! -d ~/.config/nvim ]; then
