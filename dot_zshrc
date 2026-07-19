@@ -1,14 +1,14 @@
 export PATH=$HOME/.local/share/bob/nvim-bin:~/.local/bin:$PATH
 
-autoload -U compinit
-compinit
+eval "$(atuin init zsh)"
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+# sheldon runs compinit mid-chain (see the compinit inline plugin), after
+# zsh-completions populates fpath and before compdef-using plugins load.
+eval "$(sheldon source)"
 
 if command -v kubectl >/dev/null 2>&1; then
   source <(kubectl completion zsh)
 fi
 
-eval "$(atuin init zsh)"
-eval "$(starship init zsh)"
-eval "$(zoxide init zsh)"
-eval "$(sheldon source)"
 export EDITOR=nvim

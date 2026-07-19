@@ -24,8 +24,12 @@ github = "zsh-users/zsh-autosuggestions"
 github = "zsh-users/zsh-syntax-highlighting"
 [plugins.comp]
 github = "zsh-users/zsh-completions"
-[plugins.autocomp]
-github = "marlonrichert/zsh-autocomplete"
+apply = ["fpath"]
+
+# compinit must run after zsh-completions adds to fpath, but before the
+# plugins below (oh-my-zsh, fzf) call compdef during sourcing.
+[plugins.compinit]
+inline = 'autoload -Uz compinit && compinit'
 
 [plugins.oh-my-zsh]
 github = "ohmyzsh/ohmyzsh"
