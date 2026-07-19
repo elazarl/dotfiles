@@ -14,13 +14,13 @@ cargo binstall -y ripgrep skim starship zoxide atuin bat choose lsd eza \
 # bob skips its "add to $PATH?" prompt when nvim-bin is already in PATH (dot_zshrc sets it for real shells)
 PATH="$HOME/.local/share/bob/nvim-bin:$PATH" bob use stable
 
-# macOS: fzf via brew (install brew first if missing)
+# macOS: brew tools (install brew first if missing). aria2c ships in the aria2 formula.
 if [ "$(uname -s)" = "Darwin" ]; then
   if ! command -v brew >/dev/null 2>&1; then
     NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     eval "$(/opt/homebrew/bin/brew shellenv)"
   fi
-  brew install fzf
+  brew install fzf gh glab yq tmux coreutils findutils parallel chafa aria2
 fi
 
 if [ ! -d ~/.config/nvim ]; then
