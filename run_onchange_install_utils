@@ -20,7 +20,8 @@ if [ "$(uname -s)" = "Darwin" ]; then
     NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     eval "$(/opt/homebrew/bin/brew shellenv)"
   fi
-  brew install fzf gh glab yq tmux coreutils findutils parallel chafa aria2
+  brew install fzf gh glab yq tmux coreutils findutils parallel chafa aria2 \
+    jq dust glow yazi lazygit
 fi
 
 if [ ! -d ~/.config/nvim ]; then
